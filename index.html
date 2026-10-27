@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#321e2b" />
+    <meta name="description" content="Join Mohamed and Yomna as they celebrate their wedding on Thursday, November 12, 2026, at Mountain Rose Hotel, One View Hall." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Mohamed &amp; Yomna — Wedding Invitation" />
+    <meta property="og:description" content="Together with their families, Mohamed and Yomna invite you to celebrate their wedding — November 12, 2026." />
+    <meta property="og:image" content="assets/floral-art.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>Mohamed &amp; Yomna | Our Wedding Invitation</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body class="is-locked">
+    <a class="skip-link" href="#invitation">Skip to the invitation</a>
+
+    <!-- A custom music control is used instead of the browser's default audio UI. -->
+    <audio id="weddingAudio" src="assets/a-thousand-years.mp3" preload="metadata" loop></audio>
+
+    <div class="petals" id="petals" aria-hidden="true"></div>
+
+    <div class="intro" id="intro" role="dialog" aria-modal="true" aria-labelledby="introTitle">
+      <div class="intro__glow intro__glow--one" aria-hidden="true"></div>
+      <div class="intro__glow intro__glow--two" aria-hidden="true"></div>
+      <div class="intro__content">
+        <div class="intro__eyebrow"><span></span> A CELEBRATION OF LOVE <span></span></div>
+        <h1 class="intro__title" id="introTitle">A little love letter <em>for you.</em></h1>
+        <p class="intro__description">Something beautiful is about to begin.</p>
+
+        <button class="envelope" id="envelopeButton" type="button" aria-label="Open Mohamed and Yomna's wedding invitation">
+          <span class="envelope__letter" aria-hidden="true">
+            <span class="envelope__letter-small">THE WEDDING OF</span>
+            <span class="envelope__letter-names">M <i>&amp;</i> Y</span>
+          </span>
+          <span class="envelope__back" aria-hidden="true"></span>
+          <span class="envelope__flap" aria-hidden="true"></span>
+          <span class="envelope__front" aria-hidden="true"></span>
+          <span class="envelope__seal" aria-hidden="true">M<span>&amp;</span>Y</span>
+        </button>
+
+        <button class="button button--gold intro__open" id="enterButton" type="button">
+          <span>Open Our Invitation</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+        </button>
+        <p class="intro__music-note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l12-2v13M9 9l12-2"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg> Music begins when you open</p>
+      </div>
+      <div class="intro__bottom" aria-hidden="true">M <span>♥</span> Y &nbsp;·&nbsp; 12.11.2026</div>
+    </div>
+
+    <div class="site" id="site">
+      <header class="topbar">
+        <a class="topbar__monogram" href="#invitation" aria-label="Back to the top">M <span>&amp;</span> Y</a>
+        <nav class="topbar__nav" aria-label="Main navigation">
+          <a href="#invitation">The Invitation</a>
+          <a href="#details">The Details</a>
+          <a href="#countdown">Countdown</a>
+        </nav>
+        <span class="topbar__date">12 NOVEMBER 2026</span>
+      </header>
+
+      <main>
+        <section class="hero" id="invitation" aria-label="Wedding invitation">
+          <div class="hero__ambience" aria-hidden="true"></div>
+          <div class="hero__paper">
+            <div class="hero__border" aria-hidden="true"></div>
+            <div class="hero__content">
+              <div class="hero__smalltop"><span></span> JOYFULLY INVITE YOU <span></span></div>
+              <div class="hero__ornament" aria-hidden="true">✦</div>
+              <p class="hero__prelude">Together with their families</p>
+              <h2 class="hero__names" id="heroTitle" tabindex="-1"><span>Mohamed</span><em>&amp;</em><span>Yomna</span></h2>
+              <p class="hero__invitation">request the pleasure of your company<br />as they celebrate their wedding</p>
+              <div class="hero__divider" aria-hidden="true"><span></span><b>♥</b><span></span></div>
+              <div class="hero__date">THURSDAY <span>·</span> NOVEMBER 12 <span>·</span> 2026</div>
+              <p class="hero__time">At seven o’clock in the evening</p>
+              <p class="hero__venue">Mountain Rose Hotel <span>—</span> One View Hall</p>
+              <a class="hero__scroll" href="#details" aria-label="Scroll to celebration details">Explore the celebration <span>↓</span></a>
+            </div>
+          </div>
+          <div class="hero__side-label" aria-hidden="true">THE BEGINNING OF FOREVER</div>
+        </section>
+
+        <section class="interlude section" aria-label="A message from the couple">
+          <div class="interlude__ornament reveal" aria-hidden="true">❦</div>
+          <p class="section-label reveal">A DAY TO REMEMBER</p>
+          <h2 class="interlude__heading reveal">Every love story is beautiful.<br /><em>Ours is our favorite.</em></h2>
+          <p class="interlude__copy reveal">With hearts full of love and joy, we invite you to share in one of the most beautiful moments of our lives. Your presence will make our celebration even more special.</p>
+          <div class="interlude__signature reveal">With love, <span>Mohamed &amp; Yomna</span></div>
+        </section>
+
+        <section class="details section" id="details" aria-labelledby="detailsTitle">
+          <div class="details__halo" aria-hidden="true"></div>
+          <div class="details__inner">
+            <p class="section-label section-label--light reveal">SAVE THE DATE</p>
+            <h2 class="details__heading reveal" id="detailsTitle">The <em>celebration</em></h2>
+            <p class="details__subtitle reveal">A beautiful evening awaits us.</p>
+
+            <div class="details__card reveal">
+              <div class="details__corner details__corner--tl" aria-hidden="true"></div>
+              <div class="details__corner details__corner--br" aria-hidden="true"></div>
+              <div class="details__calendar">
+                <span class="details__weekday">THURSDAY</span>
+                <strong>12</strong>
+                <span class="details__month">NOVEMBER 2026</span>
+              </div>
+              <div class="details__rule" aria-hidden="true"></div>
+              <div class="details__information">
+                <div class="details__item">
+                  <span class="details__item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6.5V12l3.5 2"/></svg></span>
+                  <div><span class="details__meta">THE TIME</span><strong>7:00 PM</strong><small>Cairo local time</small></div>
+                </div>
+                <div class="details__item">
+                  <span class="details__item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 10c0 5.2-8 11-8 11S4 15.2 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+                  <div><span class="details__meta">THE VENUE</span><strong>Mountain Rose Hotel</strong><small>One View Hall</small></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="details__actions reveal">
+              <button class="button button--light" id="calendarButton" type="button">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v5m10-5v5M3 10h18"/></svg>
+                Add to Calendar
+              </button>
+              <a class="button button--outline" href="https://www.google.com/maps/search/?api=1&amp;query=Mountain%20Rose%20Hotel%20One%20View%20Hall" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5.2-8 11-8 11S4 15.2 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                View Location
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section class="countdown section" id="countdown" aria-labelledby="countdownTitle">
+          <p class="section-label reveal">COUNTING EVERY MOMENT</p>
+          <h2 class="countdown__heading reveal" id="countdownTitle">Until our <em>forever</em></h2>
+          <p class="countdown__copy reveal" id="countdownMessage">The best moments are worth waiting for.</p>
+          <div class="countdown__grid reveal" role="timer" aria-label="Time remaining until November 12, 2026 at 7 PM Cairo time">
+            <div class="countdown__unit"><strong id="days">00</strong><span>DAYS</span></div>
+            <div class="countdown__separator" aria-hidden="true">:</div>
+            <div class="countdown__unit"><strong id="hours">00</strong><span>HOURS</span></div>
+            <div class="countdown__separator" aria-hidden="true">:</div>
+            <div class="countdown__unit"><strong id="minutes">00</strong><span>MINUTES</span></div>
+            <div class="countdown__separator" aria-hidden="true">:</div>
+            <div class="countdown__unit"><strong id="seconds">00</strong><span>SECONDS</span></div>
+          </div>
+          <div class="countdown__littleheart" aria-hidden="true">♡</div>
+        </section>
+
+        <section class="farewell section" aria-labelledby="farewellTitle">
+          <div class="farewell__frame reveal">
+            <p class="section-label">ONE DAY. TWO HEARTS. FOREVER.</p>
+            <h2 id="farewellTitle">We can't wait to<br /><em>celebrate with you.</em></h2>
+            <p>Here's to love, laughter, and a beautiful new chapter.</p>
+            <div class="farewell__monogram" aria-hidden="true">M <span>&amp;</span> Y</div>
+            <button class="button button--plum" id="shareButton" type="button">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m9 10.5 6-4m-6 7 6 4"/></svg>
+              Share the Invitation
+            </button>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <span>MOHAMED <b>&amp;</b> YOMNA</span>
+        <span>12 · 11 · 2026</span>
+        <span>MADE WITH LOVE ♡</span>
+      </footer>
+    </div>
+
+    <button class="music-toggle" id="musicButton" type="button" aria-label="Play music" aria-pressed="false" title="Play or pause the music">
+      <span class="music-toggle__bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span class="music-toggle__text">MUSIC OFF</span>
+    </button>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <noscript><div class="noscript">Please enable JavaScript to open this interactive wedding invitation.</div></noscript>
+  </body>
+</html>
