@@ -45,11 +45,12 @@ assets/
 
 ## Helpful notes
 
-- **Music:** Mobile browsers usually block autoplay before a user interaction. The song starts automatically as the guest clicks **Open Our Invitation** or the envelope. It is unmuted by default; the small speaker icon at the top mutes/unmutes the song. If playback is blocked by a browser, the same icon lets the guest start it.
+- **Music:** Mobile browsers usually block autoplay before a user interaction. The song starts automatically as the guest clicks **Open Our Invitation** or the envelope. It is unmuted at full volume by default (subject to the device's volume); the small speaker icon at the top mutes/unmutes the song. If playback is blocked by a browser, the icon pulses so the guest can tap it to start the song.
 - **Venue link:** The **View Location** button opens the exact Google Maps share link supplied by the couple: `https://maps.app.goo.gl/kK3xegVczcqw3K5i6?g_st=ac`.
 - **Calendar:** The calendar entry begins on November 12, 2026 at 7 PM Cairo time. The couple did not specify an end time, so none is asserted.
 - **Sharing:** The share button becomes useful once the page has been published and has a public URL.
 - **Audio rights:** Before publishing a commercial recording publicly, make sure you have permission to distribute it. You can replace `assets/a-thousand-years.mp3` with a track you are licensed to publish, keeping the same filename.
+- **If the music is silent:** First check your device and browser tab aren't muted. Open the published site directly in Chrome or Safari (some in-app previews restrict audio), press the opening gate, and tap the speaker icon if it pulses. In the GitHub repository, verify that `assets/a-thousand-years.mp3` was uploaded with the other files. The browser console/network panel should show the MP3 loading without an HTTP 404 error.
 - **Edits:** Update visible wording in `index.html`; update the event date in `script.js` (both `EVENT.date` and the `DTSTART` calendar field) if the schedule changes.
 
 This is a static invitation: no guest information is collected and no RSVP data is stored.

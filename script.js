@@ -20,29 +20,48 @@
 
   // The opening overlay prevents interacting with the hidden page underneath it.
   site.inert = true;
-  audio.volume = 0.82;
+  audio.volume = 1;
+  // Start buffering ahead of the guest's tap so playback can begin quickly.
+  if (audio.readyState === 0) audio.load();
 
-  function showToast(message) {
+  function showToast(message, duration = 3600) {
     toast.textContent = message;
     toast.classList.add('show');
     window.clearTimeout(toastTimer);
-    toastTimer = window.setTimeout(() => toast.classList.remove('show'), 3600);
+    toastTimer = window.setTimeout(() => toast.classList.remove('show'), duration);
   }
 
   function syncSoundButton() {
     musicButton.classList.toggle('is-muted', audio.muted);
+    musicButton.classList.toggle('needs-play', invitationOpened && audio.paused);
     musicButton.setAttribute('aria-pressed', String(audio.muted));
-    musicButton.setAttribute('aria-label', audio.muted ? 'Unmute music' : 'Mute music');
+    const label = audio.paused ? 'Play music' : (audio.muted ? 'Unmute music' : 'Mute music');
+    musicButton.setAttribute('aria-label', label);
+    musicButton.title = label;
   }
 
-  async function playMusic() {
+  function handleMusicFailure(error) {
+    syncSoundButton();
+    const blocked = error && error.name === 'NotAllowedError';
+    showToast(blocked
+      ? 'Your browser blocked the music. Tap the speaker icon to start it.'
+      : 'Music could not load. Make sure the MP3 file was uploaded with the site.', 6500);
+    if (error) console.warn('Wedding invitation music:', error);
+  }
+
+  function playMusic() {
+    // Call play() synchronously during the actual guest tap: no await, timer,
+    // transition, or network request is allowed before this call.
+    audio.muted = false;
+    let playback;
     try {
-      audio.muted = false;
-      await audio.play();
-      syncSoundButton();
+      playback = audio.play();
     } catch (error) {
-      syncSoundButton();
-      showToast('Tap the sound icon to start the song.');
+      handleMusicFailure(error);
+      return;
+    }
+    if (playback && typeof playback.then === 'function') {
+      playback.then(syncSoundButton).catch(handleMusicFailure);
     }
   }
 
@@ -51,7 +70,7 @@
     invitationOpened = true;
 
     // Playing in the click handler is essential for mobile autoplay rules.
-    void playMusic();
+    playMusic();
     intro.classList.add('is-opening');
     document.body.classList.remove('is-locked');
     window.setTimeout(() => {
@@ -66,14 +85,16 @@
 
   musicButton.addEventListener('click', () => {
     if (audio.paused) {
-      void playMusic();
+      playMusic();
     } else {
       audio.muted = !audio.muted;
       syncSoundButton();
     }
   });
+  audio.addEventListener('playing', syncSoundButton);
+  audio.addEventListener('pause', syncSoundButton);
   audio.addEventListener('volumechange', syncSoundButton);
-  audio.addEventListener('error', () => showToast('The song could not be loaded. Please check the music file.'));
+  audio.addEventListener('error', () => handleMusicFailure(audio.error));
   syncSoundButton();
 
   // Count down to 7 PM Cairo time (UTC+2 on November 12, 2026).
