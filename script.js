@@ -13,7 +13,6 @@
   const intro = document.getElementById('intro');
   const site = document.getElementById('site');
   const musicButton = document.getElementById('musicButton');
-  const musicLabel = musicButton.querySelector('.music-toggle__text');
   const toast = document.getElementById('toast');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let invitationOpened = false;
@@ -30,21 +29,20 @@
     toastTimer = window.setTimeout(() => toast.classList.remove('show'), 3600);
   }
 
-  function syncMusicButton() {
-    const playing = !audio.paused && !audio.ended;
-    musicButton.classList.toggle('is-playing', playing);
-    musicButton.setAttribute('aria-pressed', String(playing));
-    musicButton.setAttribute('aria-label', playing ? 'Pause music' : 'Play music');
-    musicLabel.textContent = playing ? 'MUSIC ON' : 'MUSIC OFF';
+  function syncSoundButton() {
+    musicButton.classList.toggle('is-muted', audio.muted);
+    musicButton.setAttribute('aria-pressed', String(audio.muted));
+    musicButton.setAttribute('aria-label', audio.muted ? 'Unmute music' : 'Mute music');
   }
 
   async function playMusic() {
     try {
+      audio.muted = false;
       await audio.play();
-      syncMusicButton();
+      syncSoundButton();
     } catch (error) {
-      syncMusicButton();
-      showToast('Tap the music button to enjoy the song.');
+      syncSoundButton();
+      showToast('Tap the sound icon to start the song.');
     }
   }
 
@@ -70,13 +68,13 @@
     if (audio.paused) {
       void playMusic();
     } else {
-      audio.pause();
+      audio.muted = !audio.muted;
+      syncSoundButton();
     }
   });
-  audio.addEventListener('play', syncMusicButton);
-  audio.addEventListener('pause', syncMusicButton);
+  audio.addEventListener('volumechange', syncSoundButton);
   audio.addEventListener('error', () => showToast('The song could not be loaded. Please check the music file.'));
-  syncMusicButton();
+  syncSoundButton();
 
   // Count down to 7 PM Cairo time (UTC+2 on November 12, 2026).
   const counters = {

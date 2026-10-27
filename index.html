@@ -22,7 +22,7 @@
     <a class="skip-link" href="#invitation">Skip to the invitation</a>
 
     <!-- A custom music control is used instead of the browser's default audio UI. -->
-    <audio id="weddingAudio" src="assets/a-thousand-years.mp3" preload="metadata" loop></audio>
+    <audio id="weddingAudio" src="assets/a-thousand-years.mp3" preload="auto" loop></audio>
 
     <div class="petals" id="petals" aria-hidden="true"></div>
 
@@ -127,7 +127,7 @@
                 <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v5m10-5v5M3 10h18"/></svg>
                 Add to Calendar
               </button>
-              <a class="button button--outline" href="https://www.google.com/maps/search/?api=1&amp;query=Mountain%20Rose%20Hotel%20One%20View%20Hall" target="_blank" rel="noopener noreferrer">
+              <a class="button button--outline" href="https://maps.app.goo.gl/kK3xegVczcqw3K5i6?g_st=ac" target="_blank" rel="noopener noreferrer">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5.2-8 11-8 11S4 15.2 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
                 View Location
               </a>
@@ -172,9 +172,9 @@
       </footer>
     </div>
 
-    <button class="music-toggle" id="musicButton" type="button" aria-label="Play music" aria-pressed="false" title="Play or pause the music">
-      <span class="music-toggle__bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-      <span class="music-toggle__text">MUSIC OFF</span>
+    <button class="sound-toggle" id="musicButton" type="button" aria-label="Mute music" aria-pressed="false" title="Mute or unmute music">
+      <svg class="sound-toggle__on" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7m3-10a9 9 0 0 1 0 13"/></svg>
+      <svg class="sound-toggle__off" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="m16 9 5 6m0-6-5 6"/></svg>
     </button>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <noscript><div class="noscript">Please enable JavaScript to open this interactive wedding invitation.</div></noscript>

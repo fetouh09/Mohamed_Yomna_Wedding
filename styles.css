@@ -176,16 +176,14 @@ svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width:
 .footer { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 27px 6vw; color: #e1c6b3; background: #2b1d29; font: 600 10px var(--sans); letter-spacing: .19em; }
 .footer b { color: #b9818e; font: 18px var(--script); }
 
-/* Music, status and falling petals */
-.music-toggle { position: fixed; z-index: 1001; right: 22px; bottom: 20px; display: flex; align-items: center; gap: 10px; min-height: 46px; padding: 12px 16px; color: #f9ede4; border: 1px solid rgba(231,205,184,.4); border-radius: 40px; background: rgba(50,30,43,.88); box-shadow: 0 8px 28px rgba(20,10,20,.18); cursor: pointer; backdrop-filter: blur(10px); }
-.music-toggle:hover { background: #59384c; }
-.music-toggle__text { font: 700 9px var(--sans); letter-spacing: .16em; white-space: nowrap; }
-.music-toggle__bars { height: 17px; display: flex; align-items: center; gap: 3px; }
-.music-toggle__bars i { width: 2px; height: 5px; background: #e9bda8; border-radius: 2px; }
-.music-toggle.is-playing .music-toggle__bars i { animation: beat 1s ease-in-out infinite alternate; }
-.music-toggle.is-playing .music-toggle__bars i:nth-child(2) { animation-delay: -.6s; }
-.music-toggle.is-playing .music-toggle__bars i:nth-child(3) { animation-delay: -.25s; }
-.music-toggle.is-playing .music-toggle__bars i:nth-child(4) { animation-delay: -.8s; }
+/* Small sound icon, visible after the guest opens the invitation. */
+.sound-toggle { position: fixed; z-index: 1001; right: 22px; top: 24px; display: grid; place-items: center; width: 39px; height: 39px; padding: 9px; color: #5b384a; border: 1px solid rgba(148,104,103,.43); border-radius: 50%; background: rgba(255,249,242,.83); box-shadow: 0 4px 16px rgba(77,45,54,.12); cursor: pointer; backdrop-filter: blur(8px); transition: background .2s, opacity .3s; }
+.sound-toggle:hover { background: #fffdf7; }
+.sound-toggle svg { width: 19px; height: 19px; }
+.sound-toggle__off { display: none; }
+.sound-toggle.is-muted .sound-toggle__on { display: none; }
+.sound-toggle.is-muted .sound-toggle__off { display: block; }
+body.is-locked .sound-toggle { opacity: 0; pointer-events: none; }
 .toast { position: fixed; z-index: 1300; left: 50%; bottom: 85px; min-width: 200px; max-width: calc(100% - 32px); padding: 12px 18px; color: #fff9ee; background: #47313f; border: 1px solid #a58179; border-radius: 5px; text-align: center; box-shadow: 0 8px 26px rgba(0,0,0,.2); font-size: 12px; line-height: 1.5; opacity: 0; visibility: hidden; transform: translate(-50%, 10px); transition: all .25s ease; pointer-events: none; }
 .toast.show { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
 .petals { position: fixed; z-index: 999; inset: 0; overflow: hidden; pointer-events: none; }
@@ -193,7 +191,6 @@ svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width:
 .noscript { position: fixed; z-index: 2001; bottom: 0; width: 100%; padding: 12px; background: white; color: var(--plum); text-align: center; }
 
 @keyframes paperIn { from { opacity: 0; transform: translateY(25px) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
-@keyframes beat { from { height: 4px; } to { height: 16px; } }
 @keyframes bounce { 0%, 100% { transform: translateY(-2px); } 50% { transform: translateY(5px); } }
 @keyframes petalFall { 0% { transform: translate3d(0,-20px,0) rotate(0deg); } 50% { transform: translate3d(var(--drift),50vh,0) rotate(190deg); } 100% { transform: translate3d(var(--drift-back),112vh,0) rotate(420deg); } }
 
@@ -256,7 +253,7 @@ svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width:
   .farewell h2 { font-size: clamp(38px, 9vw, 55px); }
   .farewell__frame > p:not(.section-label) { font-size: 12px; }
   .footer { flex-direction: column; gap: 8px; padding: 27px 18px 80px; text-align: center; font-size: 9px; }
-  .music-toggle { right: 14px; bottom: 15px; padding: 12px; }
+  .sound-toggle { right: 15px; top: 74px; width: 36px; height: 36px; padding: 8px; }
 }
 
 @media (max-width: 380px) {
